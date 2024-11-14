@@ -59,15 +59,6 @@ const Header = () => {
                 Contact
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/github"
-                onClick={() => handleButtonClick('/github')} // Trigger redirect after 0.5s
-                className={({ isActive }) => `text-gray-300 px-4 py-2 rounded-lg transition-all duration-300 ${isActive ? 'text-orange-500 font-medium transform scale-105' : 'hover:text-orange-500'}`}
-              >
-                Github
-              </NavLink>
-            </li>
           </ul>
         </div>
 
@@ -119,16 +110,7 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/github"
-              onClick={() => handleButtonClick('/github')} // Trigger redirect after 0.5s
-              className="px-6 py-3 rounded-lg hover:text-orange-500 transition-all duration-300"
-            >
-              Github
-            </NavLink>
-          </li>
-        </ul>
+         </ul>
       </div>
     </header>
   );
