@@ -2,45 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Blur the background when loading */
-.blur-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    z-index: 9999;  /* Ensure it's above all other content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);  /* Apply blur effect to the background */
-  }
-  
-  /* Spinner (Loading Icon) */
-  .loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Spinner animation */
-.spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid white;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    animation: spin 0.5s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+}
 
-  
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black; /* Black background for the entire body */
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset margin and padding for the root content to prevent any unwanted gaps */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Optional: Ensures no gap between header/footer and content */
+main {
+  flex-grow: 1;
+}
+
+/* Optional: Ensures footer stays at the bottom */
+footer {
+  position: relative;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
