@@ -13,6 +13,30 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* Ensure black background fills the full screen */
+.fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: -1; /* Set z-index to -1 to ensure the background is behind other content */
+}
+
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: black; /* Black background for the entire body */
 }
 
