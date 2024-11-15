@@ -30,6 +30,8 @@ import User from './components/User/User.jsx'
 //   }
 // ])
 
+import Team from './components/Team/Team.jsx'; // Import the Team component
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
@@ -37,9 +39,11 @@ const router = createBrowserRouter(
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
       <Route path='user/:userid' element={<User />} />
+      <Route path="team" element={<Team />} /> {/* Ensure the Team route is properly set */}
     </Route>
   )
 )
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -1,43 +1,38 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import { FlipWords } from '../ui/flip-words'; // Adjust path if necessary
-import img1 from './img1.jpg'; // Import background image
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);  // Track loading state
   const synonyms = ["Creativity", "Advancement", "Progress", "Innovation", "Vision", "Imagination", "Exploration", "Transformation"];
-  const navigate = useNavigate();  // Hook to navigate to different pages
+
+  // Ref to handle scrolling to the next section
+  const nextSectionRef = React.useRef(null);
 
   const handleExploreClick = () => {
-    setLoading(true);  // Start loading animation
-
-    // Simulate loading animation with setTimeout
-    setTimeout(() => {
-      setLoading(false);  // Stop loading after animation
-      navigate('/about');  // Navigate to About page after animation
-    }, 3000);  // Duration of loading animation
+    // Smooth scroll to the next section
+    if (nextSectionRef.current) {
+      nextSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div 
-      className="fixed inset-0 bg-cover bg-center flex flex-col items-center justify-center font-sans"
-      style={{ backgroundImage: `url(${img1})` }}
-    >
+    <div className="min-h-screen bg-black">
       {/* Main Content with Expanded Black Box and Entrance Animation */}
-      <div className="text-center max-w-5xl p-8 rounded-lg bg-black bg-opacity-40 space-y-4 fade-in-up">
-        <h1 className="text-white text-3xl sm:text-4xl font-bold font-serif mb-4">
+      <div className="min-h-screen flex flex-col items-center justify-center font-sans text-center bg-black text-white">
+        <h1 className="text-3xl sm:text-4xl font-bold font-serif mb-4">
           SOCIETY FOR INDUSTRIAL AND APPLIED MATHEMATICS
         </h1>
         <div className="flex flex-col items-center">
-          <span className="text-white italic text-lg sm:text-2xl font-medium mb-2">
+          <span className="italic text-lg sm:text-2xl font-medium mb-2">
             <FlipWords words={synonyms} duration={3000} />
           </span>
-          <span className="text-white text-md sm:text-lg font-light">
+          <span className="text-md sm:text-lg font-light">
             through Research
           </span>
         </div>
 
-        {/* Stylish Transparent Button with Text Color Change on Hover */}
+        <div className="h-15rem"></div>
+
+        {/* Explore Button */}
         <div className="mt-8 flex justify-center">
           <button
             onClick={handleExploreClick}
@@ -49,17 +44,17 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Loading Animation (Overlay with Loading Spinner) */}
-      {loading && (
-        <div className="blur-overlay">
-          <div className="loading-spinner">
-            <div className="spinner"></div>
-          </div>
-        </div>
-      )}
+      {/* Dummy Content Section for Scrolling */}
+      <div ref={nextSectionRef} className="min-h-screen flex items-center justify-center bg-black text-white text-center p-8">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Welcome to the Next Section</h2>
+        <p className="text-lg sm:text-xl font-light">
+          This is some placeholder content that will appear once you scroll down. 
+          You can add any content you like here for further sections.
+        </p>
+      </div>
 
       {/* Footer */}
-      <footer className="absolute bottom-0 w-full text-center py-4 bg-black bg-opacity-80">
+      <footer className="relative w-full text-center py-4 bg-black bg-opacity-80">
         <p className="text-sm sm:text-md font-light text-white">
           © 2024 SIAM @ JUIT. All rights reserved.
         </p>
