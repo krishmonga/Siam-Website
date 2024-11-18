@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure black background fills the full screen */
+.fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: -1; /* Set z-index to -1 to ensure the background is behind other content */
+}
+
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black; /* Black background for the entire body */
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset margin and padding for the root content to prevent any unwanted gaps */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Optional: Ensures no gap between header/footer and content */
+main {
+  flex-grow: 1;
+}
+
+/* Optional: Ensures footer stays at the bottom */
+footer {
+  position: relative;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
